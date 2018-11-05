@@ -7,7 +7,8 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
-const env=require('./config/env');
+//const env=require('dotenv');
+//var env=require('./config/env');
 
 const app=express();
 
@@ -15,10 +16,13 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 
-const port=3000;
+const mongoURI = 'mongodb://tanu:tanu123@ds151753.mlab.com:51753/task';
 
+
+const port=3000;
+/*
 mongoose.connect(env.mongodb.dbURI,() => {
     console.log('connected to mongo db');
 });
-
+*/
 app.listen(port,() => console.log(`server started on port ${port}`));
